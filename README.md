@@ -24,7 +24,7 @@
 </table>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/18studio/pi-caveman-ru/main/pi-caveman.gif" alt="Демонстрация pi-caveman" width="600">
+  <img src="https://raw.githubusercontent.com/18studio/pi-caveman-ru/main/pi-caveman.gif" alt="Демонстрация pi-caveman-ru" width="600">
 </p>
 
 ## Установка
@@ -38,23 +38,23 @@ pi install git:github.com/18studio/pi-caveman-ru
 ### Переключение режима
 
 ```
-/caveman              Включить (full) / выключить
-/caveman lite         Деловой стиль, без воды
-/caveman full         Классический пещерный стиль (по умолчанию)
-/caveman ultra        Максимальное сжатие
-/caveman wenyan-lite  Полуклассический китайский
-/caveman wenyan       Полный 文言文
-/caveman wenyan-ultra Предельно сжатый 文言文
-/caveman micro        Экспериментальный режим с минимальным промптом
-/caveman off          Выключить
-/caveman stop         Выключить (псевдоним)
-/caveman quit         Выключить (псевдоним)
+/caveman-ru              Включить (full) / выключить
+/caveman-ru lite         Деловой стиль, без воды
+/caveman-ru full         Классический пещерный стиль (по умолчанию)
+/caveman-ru ultra        Максимальное сжатие
+/caveman-ru wenyan-lite  Полуклассический китайский
+/caveman-ru wenyan       Полный 文言文
+/caveman-ru wenyan-ultra Предельно сжатый 文言文
+/caveman-ru micro        Экспериментальный режим с минимальным промптом
+/caveman-ru off          Выключить
+/caveman-ru stop         Выключить (псевдоним)
+/caveman-ru quit         Выключить (псевдоним)
 ```
 
 ### Настройки
 
 ```
-/caveman config       Открыть диалог настроек
+/caveman-ru config       Открыть диалог настроек
 ```
 
 В диалоге настроек доступны:
@@ -66,7 +66,7 @@ pi install git:github.com/18studio/pi-caveman-ru
 
 ### Строка состояния
 
-Когда режим включён, строка состояния показывает текущий уровень, а внизу экрана мерцает анимированный костёр из цветных символов Брайля. Индикатор можно отключить в меню `/caveman config`.
+Когда режим включён, строка состояния показывает текущий уровень, а внизу экрана мерцает анимированный костёр из цветных символов Брайля. Индикатор можно отключить в меню `/caveman-ru config`.
 
 ## Уровни
 
@@ -87,10 +87,6 @@ pi install git:github.com/18studio/pi-caveman-ru
 ## Предупреждение
 
 Пещерный режим влияет только на _выходные токены_, но не на токены рассуждений, входные токены, вызовы инструментов чтения и записи файлов и т. п. Если агент работает с огромной кодовой базой и сложной задачей, не стоит ожидать значительного сокращения общего числа токенов.
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/18studio/pi-caveman-ru/main/shoutout.jpg" alt="Восторженный отзыв о pi-caveman" width="600">
-</p>
 
 Но для тех, кто следит за расходами, каждый токен на счету ;)
 

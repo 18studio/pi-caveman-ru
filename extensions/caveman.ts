@@ -1,13 +1,13 @@
 /**
- * pi-caveman — why use many token when few do trick
+ * pi-caveman-ru — why use many token when few do trick
  *
  * A pi extension that cuts ~75% of output tokens while keeping full technical
  * accuracy. Based on https://github.com/JuliusBrussee/caveman
  *
  * Commands:
- *   /caveman [level]  Toggle caveman mode or set intensity
- *   /caveman stop     Disable caveman mode (aliases: off, quit)
- *   /caveman config   Open settings dialog (default level, status bar toggle)
+ *   /caveman-ru [level]  Toggle caveman-ru mode or set intensity
+ *   /caveman-ru stop     Disable caveman-ru mode (aliases: off, quit)
+ *   /caveman-ru config   Open settings dialog (default level, status bar toggle)
  */
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
@@ -37,9 +37,9 @@ const CAVEMAN_COMMAND_OPTIONS = [
 	{ value: "wenyan", label: "wenyan", description: "Full 文言文" },
 	{ value: "wenyan-ultra", label: "wenyan-ultra", description: "Extreme 文言文" },
 	{ value: "micro", label: "micro", description: "Experimental prompt-minimized mode" },
-	{ value: "off", label: "off", description: "Disable caveman mode" },
-	{ value: "stop", label: "stop", description: "Disable caveman mode" },
-	{ value: "quit", label: "quit", description: "Disable caveman mode" },
+	{ value: "off", label: "off", description: "Disable caveman-ru mode" },
+	{ value: "stop", label: "stop", description: "Disable caveman-ru mode" },
+	{ value: "quit", label: "quit", description: "Disable caveman-ru mode" },
 	{ value: "config", label: "config", description: "Open settings dialog" },
 ] as const;
 
@@ -245,7 +245,7 @@ export default function caveman(pi: ExtensionAPI) {
 
 		const anim = ANIMATIONS[level];
 		const setFrame = (frame: string) => {
-			ctx.ui.setStatus("caveman", frame + " " + theme.fg("muted", "caveman level: ") + theme.fg("text", anim.label));
+			ctx.ui.setStatus("caveman", frame + " " + theme.fg("muted", "caveman-ru level: ") + theme.fg("text", anim.label));
 		};
 
 		if (!isActive) {
@@ -302,10 +302,10 @@ export default function caveman(pi: ExtensionAPI) {
 		isActive = false;
 	});
 
-	// -- /caveman command --
+	// -- /caveman-ru command --
 
-	pi.registerCommand("caveman", {
-		description: "Toggle caveman mode, set level, use stop/off/quit to disable, or 'config' to open settings",
+	pi.registerCommand("caveman-ru", {
+		description: "Toggle caveman-ru mode, set level, use stop/off/quit to disable, or 'config' to open settings",
 		getArgumentCompletions: (prefix: string) => {
 			const normalized = prefix.trim().toLowerCase();
 			const items = CAVEMAN_COMMAND_OPTIONS.filter((item) => item.value.startsWith(normalized));
@@ -335,13 +335,13 @@ export default function caveman(pi: ExtensionAPI) {
 			syncStatus(ctx);
 
 			ctx.ui.notify(
-				level === "off" ? "Caveman mode off." : `Caveman: ${ANIMATIONS[level].label}`,
+				level === "off" ? "caveman-ru mode off." : `caveman-ru: ${ANIMATIONS[level].label}`,
 				"info",
 			);
 		},
 	});
 
-	// -- /caveman config: interactive SettingsList --
+	// -- /caveman-ru config: interactive SettingsList --
 
 	async function openConfig(ctx: ExtensionContext) {
 		await ensureConfigLoaded();
@@ -363,7 +363,7 @@ export default function caveman(pi: ExtensionAPI) {
 			];
 
 			const container = new Container();
-			container.addChild(new Text(theme.fg("accent", theme.bold(" Caveman Config")), 0, 0));
+			container.addChild(new Text(theme.fg("accent", theme.bold(" caveman-ru Config")), 0, 0));
 			container.addChild(new Text(theme.fg("dim", ` Saved to ${CONFIG_PATH}`), 0, 0));
 			container.addChild(new Text(theme.fg("dim", " Default level applies to future sessions."), 0, 0));
 			container.addChild(new Text("", 0, 0));
