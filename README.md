@@ -1,105 +1,105 @@
-# 🪨 pi-caveman
+# 🪨 pi-caveman-ru
 
-**Why use many token when few do trick.**
+**Зачем много токенов, если мало хватает.**
 
-A [pi](https://github.com/mariozechner/pi) extension that cuts **~75% of output tokens** while keeping full technical accuracy. Based on [caveman](https://github.com/JuliusBrussee/caveman) by [Julius Brussee](https://github.com/JuliusBrussee).
+Расширение для [pi](https://github.com/mariozechner/pi), которое сокращает **число выходных токенов примерно на 75%**, сохраняя полную техническую точность. Основано на [caveman](https://github.com/JuliusBrussee/caveman) от [Julius Brussee](https://github.com/JuliusBrussee).
 
 <table>
 <tr>
 <td width="50%">
 
-### 🗣️ Normal (69 tokens)
+### 🗣️ Обычный стиль (69 токенов в английском оригинале)
 
-> "The reason your React component is re-rendering is likely because you're creating a new object reference on each render cycle. When you pass an inline object as a prop, React's shallow comparison sees it as a different object every time, which triggers a re-render. I'd recommend using useMemo to memoize the object."
+> «Вероятно, ваш компонент React повторно рендерится потому, что при каждом рендере вы создаёте новую ссылку на объект. Когда вы передаёте объект, созданный прямо в JSX, через проп, поверхностное сравнение React каждый раз считает его новым объектом, что вызывает повторный рендер. Я рекомендую использовать useMemo для мемоизации объекта».
 
 </td>
 <td width="50%">
 
-### 🪨 Caveman (19 tokens)
+### 🪨 Пещерный стиль (19 токенов в английском оригинале)
 
-> "New object ref each render. Inline object prop = new ref = re-render. Wrap in `useMemo`."
+> «Новая ссылка на объект каждый рендер. Объект в пропе = новая ссылка = повторный рендер. Оберни в `useMemo`».
 
 </td>
 </tr>
 </table>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jonjonrankin/pi-caveman/main/pi-caveman.gif" alt="pi-caveman demo" width="600">
+  <img src="https://raw.githubusercontent.com/18studio/pi-caveman-ru/main/pi-caveman.gif" alt="Демонстрация pi-caveman" width="600">
 </p>
 
-## Install
+## Установка
 
 ```bash
-pi install git:github.com/jonjonrankin/pi-caveman
+pi install git:github.com/18studio/pi-caveman-ru
 ```
 
-## Usage
+## Использование
 
-### Toggle Mode
-
-```
-/caveman              Toggle on (full) / off
-/caveman lite         Professional, no fluff
-/caveman full         Classic caveman (default)
-/caveman ultra        Maximum compression
-/caveman wenyan-lite  Semi-classical Chinese
-/caveman wenyan       Full 文言文
-/caveman wenyan-ultra Extreme 文言文
-/caveman micro        Experimental prompt-minimized mode
-/caveman off          Disable
-/caveman stop         Disable (alias)
-/caveman quit         Disable (alias)
-```
-
-### Settings
+### Переключение режима
 
 ```
-/caveman config       Open settings dialog
+/caveman              Включить (full) / выключить
+/caveman lite         Деловой стиль, без воды
+/caveman full         Классический пещерный стиль (по умолчанию)
+/caveman ultra        Максимальное сжатие
+/caveman wenyan-lite  Полуклассический китайский
+/caveman wenyan       Полный 文言文
+/caveman wenyan-ultra Предельно сжатый 文言文
+/caveman micro        Экспериментальный режим с минимальным промптом
+/caveman off          Выключить
+/caveman stop         Выключить (псевдоним)
+/caveman quit         Выключить (псевдоним)
 ```
 
-The config dialog lets you:
+### Настройки
 
-- **Default level** — Set a level that activates automatically on every new session (e.g. `full` to always start in caveman mode)
-- **Show status bar** — Toggle the animated campfire indicator in the footer
+```
+/caveman config       Открыть диалог настроек
+```
 
-Settings are saved to `~/.pi/agent/caveman.json` by default and persist across all sessions. If `XDG_CONFIG_HOME` is set, the path becomes `$XDG_CONFIG_HOME/pi/agent/caveman.json`; `PI_CODING_AGENT_DIR` overrides both.
+В диалоге настроек доступны:
 
-### Status Bar
+- **Уровень по умолчанию (Default level)** — режим, который автоматически включается в каждой новой сессии (например, `full`, чтобы всегда начинать в пещерном режиме).
+- **Показывать строку состояния (Show status bar)** — включение и выключение анимированного индикатора костра внизу экрана.
 
-When active, a status bar displays caveman level and an animated campfire flickers in the footer using colored braille characters. This can be disabled in the `/caveman config` menu.
+По умолчанию настройки сохраняются в `~/.pi/agent/caveman.json` и действуют во всех сессиях. Если задана переменная `XDG_CONFIG_HOME`, используется путь `$XDG_CONFIG_HOME/pi/agent/caveman.json`; `PI_CODING_AGENT_DIR` имеет приоритет над обоими вариантами.
 
-## Levels
+### Строка состояния
 
-| Level                      | Style                                                                                                                      | Example                                                                            |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| **Lite**                   | No filler. Full sentences. Professional but tight.                                                                         | "Your component re-renders because you create a new object reference each render." |
-| **Full**                   | Drop articles, fragments OK. Classic caveman.                                                                              | "New object ref each render. Wrap in `useMemo`."                                   |
-| **Ultra**                  | Abbreviations, arrows, maximum compression.                                                                                | "Inline obj prop → new ref → re-render. `useMemo`."                                |
-| **文言文 Lite**            | Semi-classical Chinese, grammar intact.                                                                                    | "組件頻重繪，以每繪新生對象參照故。"                                               |
-| **文言文**                 | Full classical terseness.                                                                                                  | "物出新參照，致重繪。useMemo Wrap之。"                                             |
-| **文言文 Ultra**           | Extreme classical compression.                                                                                             | "新參照→重繪。useMemo Wrap。"                                                      |
-| **Micro** _(experimental)_ | Minimal prompt that reduces size of caveman prompt itself. Drops filler, pleasantries, hedging, keeps technical substance. | "Bug in auth middleware. Token expiry check use `<` not `<=`. Fix:"                |
+Когда режим включён, строка состояния показывает текущий уровень, а внизу экрана мерцает анимированный костёр из цветных символов Брайля. Индикатор можно отключить в меню `/caveman config`.
 
-## How It Works
+## Уровни
 
-The extension hooks `before_agent_start` to append caveman communication rules to the system prompt at the selected intensity. Within a session, the active level is stored as a custom session entry and restored on resume. Across sessions, persistent config (`~/.pi/agent/caveman.json` by default, or `$XDG_CONFIG_HOME/pi/agent/caveman.json` when `XDG_CONFIG_HOME` is set; `PI_CODING_AGENT_DIR` overrides both) provides the default level and status bar preference. Auto-clarity rules tell the model to drop caveman mode for security warnings or irreversible actions.
+| Уровень | Стиль | Пример |
+| --- | --- | --- |
+| **Lite** | Без воды. Полные предложения. Деловой, но лаконичный стиль. | «Компонент повторно рендерится, потому что при каждом рендере вы создаёте новую ссылку на объект». |
+| **Full** | Без лишних слов; допустимы обрывочные фразы. Классический пещерный стиль. | «Новая ссылка каждый рендер. Оберни в `useMemo`». |
+| **Ultra** | Сокращения, стрелки, максимальное сжатие. | «Объект в пропе → новая ссылка → ререндер. `useMemo`». |
+| **文言文 Lite** | Полуклассический китайский с сохранением грамматики. | «組件頻重繪，以每繪新生對象參照故。» |
+| **文言文** | Лаконичный классический китайский. | «物出新參照，致重繪。useMemo Wrap之。» |
+| **文言文 Ultra** | Предельно сжатый классический китайский. | «新參照→重繪。useMemo Wrap。» |
+| **Micro** _(экспериментальный)_ | Минимальный промпт, уменьшающий размер самих инструкций пещерного режима. Убирает воду, любезности и оговорки, сохраняя техническую суть. | «Баг в middleware авторизации. Проверка срока токена: `<`, не `<=`. Исправление:» |
 
-## Warning
+## Как это работает
 
-Caveman mode only affects _output tokens_, not chain-of-thought tokens, input tokens, file read/write tool calls, etc. If your agent is in a huge codebase and you've given it a complex task, don't expect much token reduction.
+Расширение обрабатывает событие `before_agent_start`, добавляя в системный промпт правила пещерного стиля с выбранной интенсивностью. Внутри сессии текущий уровень сохраняется в пользовательской записи сессии и восстанавливается при её возобновлении. Между сессиями постоянный файл настроек (`~/.pi/agent/caveman.json` по умолчанию или `$XDG_CONFIG_HOME/pi/agent/caveman.json`, если задана переменная `XDG_CONFIG_HOME`; `PI_CODING_AGENT_DIR` имеет приоритет над обоими вариантами) задаёт уровень по умолчанию и видимость строки состояния. Правила автоматического повышения ясности предписывают модели отключать пещерный стиль для предупреждений о безопасности и необратимых действий.
+
+## Предупреждение
+
+Пещерный режим влияет только на _выходные токены_, но не на токены рассуждений, входные токены, вызовы инструментов чтения и записи файлов и т. п. Если агент работает с огромной кодовой базой и сложной задачей, не стоит ожидать значительного сокращения общего числа токенов.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jonjonrankin/pi-caveman/main/shoutout.jpg" alt="pi-caveman glowing review" width="600">
+  <img src="https://raw.githubusercontent.com/18studio/pi-caveman-ru/main/shoutout.jpg" alt="Восторженный отзыв о pi-caveman" width="600">
 </p>
 
-But for the cost-conscious, every token counts ;)
+Но для тех, кто следит за расходами, каждый токен на счету ;)
 
-## Credits
+## Благодарности
 
-Based on [caveman](https://github.com/JuliusBrussee/caveman) by [Julius Brussee](https://github.com/JuliusBrussee).
+Основано на [caveman](https://github.com/JuliusBrussee/caveman) от [Julius Brussee](https://github.com/JuliusBrussee).
 
-`micro` mode prompt based on [caveman-micro](https://github.com/kuba-guzik/caveman-micro) by [Kuba Guzik](https://github.com/kuba-guzik).
+Промпт режима `micro` основан на [caveman-micro](https://github.com/kuba-guzik/caveman-micro) от [Kuba Guzik](https://github.com/kuba-guzik).
 
-## License
+## Лицензия
 
 MIT
